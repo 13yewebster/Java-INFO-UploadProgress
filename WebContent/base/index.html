@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+
+    <title>Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="./assets/css/custom.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="./dist/js/html5shiv.js"></script>
+      <script src="./dist/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="./assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="./assets/ico/favicon.ico">
+
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <div class="text-center">
+                <h3 class="panel-title"><b>Form Cases</b></h3>
+              </div>
+            </div>
+            <div class="panel-body">
+              <form role="form" action="UploadServlet" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                  <label for="inputFile">File Input</label>
+                  <input type="file" id="inputFile">
+                  <p class="help-block">Please input your file.</p>
+                </div>
+                <button type="submit" class="btn btn-block btn-default">Upload</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4"></div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./dist/js/jquery.min.js"></script>
+    <script src="./dist/js/bootstrap.min.js"></script>
+
+    <!-- Let's Start Manipulate -->
+
+  </body>
+</html>

@@ -1,0 +1,40 @@
+/* Custom Stylesheet */
+
+/*
+@font-face {
+    font-family: 'Open Sans';
+    src: url('../fonts/OpenSans-Light.ttf') format('truetype'),
+         url('../fonts/OpenSans-LightItalic.ttf') format('truetype'),
+         url('../fonts/OpenSans-Regular.ttf') format('truetype'),
+         url('../fonts/OpenSans-Italic.ttf') format('truetype'),
+         url('../fonts/OpenSans-Regular.ttf') format('truetype'),
+         url('../fonts/OpenSans-Italic.ttf') format('truetype'),
+         url('../fonts/OpenSans-Semibold.ttf') format('truetype'),
+         url('../fonts/OpenSans-SemiboldItalic.ttf') format('truetype'),
+         url('../fonts/OpenSans-Bold.ttf') format('truetype'),
+         url('../fonts/OpenSans-BoldItalic.ttf') format('truetype'),
+         url('../fonts/OpenSans-ExtraBold.ttf') format('truetype'),
+         url('../fonts/OpenSans-ExtraBoldItalic.ttf') format('truetype');
+}
+*/
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('../fonts/OpenSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('../fonts/OpenSans-Light.ttf') format('truetype');
+  font-weight: 300;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  padding: 15px 0;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+}

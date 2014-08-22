@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+
+    <title>Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="./assets/css/custom.css" rel="stylesheet">
+
+    <!-- Image Cropper CSS -->
+    <link href="./assets/css/crop-new.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="./dist/js/html5shiv.js"></script>
+      <script src="./dist/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="./assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="./assets/ico/favicon.ico">
+
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title text-center">Crop Image</h3>
+            </div>
+            <div class="panel-body">
+              <!-- Image Cropper Start -->
+              <input type="file" class="choose-image" id="chooseImage">
+              <div class="trigger-choose-image" id="triggerChooseImage">Choose an image?</div>
+              <div class="croppy">
+                <!--
+                  NOTE: To change the aspect ratio, look in crop.css
+                  The class 'default' links the div to the innit(); function
+                -->
+                <div class="cropBox">
+                  <div class="cropMain"></div>
+                  <div class="cropSlider"></div>
+                  <div class="text-center">
+                    <button class="rotateButton">Rotate</button>
+                    <button class="cropButton">Crop</button>
+                  </div>
+                </div>
+              </div>
+              <!-- Image Cropper End -->
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4"></div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./dist/js/jquery.min.js"></script>
+    <script src="./dist/js/bootstrap.min.js"></script>
+
+    <!-- Image Cropper -->
+    <script src="./assets/js/crop-new.js"></script>
+    <script src="./assets/js/crop-init-new.js"></script>
+
+  </body>
+</html>

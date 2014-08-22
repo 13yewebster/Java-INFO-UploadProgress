@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+
+    <title>Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="base/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="base/assets/css/custom.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="base/dist/js/html5shiv.js"></script>
+      <script src="base/dist/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="base/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="base/assets/ico/favicon.ico">
+
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <div class="text-center">
+                <h3 class="panel-title"><b>File Upload</b></h3>
+              </div>
+            </div>
+            <div class="panel-body">
+              <form name="form1" id="form1" action="test" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                  <label for="file">File Input</label>
+                  <input type="file" size="50" name="file1">
+                  <p class="help-block">Please input your file.</p>
+                </div>
+                <input type="submit" value="Upload" class="btn btn-block btn-default yehaa">
+              </form>
+            </div>
+            <div class="panel-footer">
+              <p class="text-center"><b>Progress Loading ...</b></p>
+              <div id="iframe" style="display: none;">contents will be changed automatically.</div>
+              <div class="progress progress-striped active" style="display: none; margin-bottom: 0;">
+                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4"></div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="base/dist/js/jquery.min.js"></script>
+    <script src="base/dist/js/bootstrap.min.js"></script>
+
+    <script>
+      function autoloadpage(){
+        $.ajax({
+          url : "http://localhost:8080/Upload/progress",
+          type : "POST",
+          success: function(data) {
+            // here the wrapper is main div
+            $("#iframe").html(data);
+            var comeOn = $("#iframe").text().trim();
+            $('.progress').css('display', 'block');
+            $('.progress-bar').css({ 'display' : 'block', 'width' : comeOn + '%'});
+            $('.progress-bar').text(comeOn + '%');
+          }
+        });
+      };
+      // it will call the function autoload() after each seconds.
+      $('.yehaa').click(function(){
+        setInterval(function(){autoloadpage()},5);
+      });
+    </script>
+
+  </body>
+</html>

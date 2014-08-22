@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+
+    <title>Upload - Back End</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="base/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="base/assets/css/custom.css" rel="stylesheet">
+
+    <style type="text/css">
+      .notif,
+      .iframes {
+        display: none;
+      }
+    </style>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="base/dist/js/html5shiv.js"></script>
+      <script src="base/dist/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="base/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="base/assets/ico/favicon.ico">
+
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <div class="text-center">
+                <h3 class="panel-title"><b>Upload - Back End</b></h3>
+              </div>
+            </div>
+            <div class="panel-body">
+              <div class="forms">
+                <form name="form1" id="form1" action="test" method="post" enctype="multipart/form-data">
+                  <div class="form-group">
+                    <label for="file">File Input</label>
+                    <input type="file" size="50" name="file1" id="fileToUpload" class="form-control">
+                    <p class="help-block">Please input your file.</p>
+                  </div>
+                  <input type="submit" value="Upload" id="uploadButton" class="btn btn-block btn-default btn-upload" disabled>
+                </form>
+              </div>
+              <div class="notif">
+                <div class="iframes"></div>
+                <p class="text-center"><b class="states"></b></p>
+                <div class="progress progress-striped active">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4"></div>
+      </div>
+    </div>
+
+    <!-- Init Core JavaScript -->
+    <script src="base/dist/js/jquery.min.js"></script>
+    <script src="base/dist/js/bootstrap.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+
+      // Remove Disabled from Button
+      document.getElementById('fileToUpload').addEventListener('change', function() {
+        document.getElementById('uploadButton').removeAttribute('disabled');
+      }, false);
+
+      // Async Set Interval
+      $('.btn-upload').click(function() {
+
+        var getProgress = setInterval(function() {
+
+          $.ajax({
+            url : 'progress',
+            type : 'POST',
+            success: function(data) {
+
+              // Progress Running
+              $('.iframes').html(data);
+
+              // DOM Manipulations
+              var percent = $('.iframes').text().trim();
+              $('.forms').css('display', 'none');
+              $('.notif').css('display', 'block');
+              $('.states').text('Upload Progress');
+              $('.progress-bar').css('width', percent + '%');
+              $('.progress-bar').text(percent + '%');
+
+              console.log(percent);
+
+              // Stop Interval
+              if (percent == 100) {
+
+                console.log('Finally ' + percent + '%');
+
+                stopInterval();
+
+                // DOM Manipulation
+                $('.states').text('Patching your file');
+                $('.progress-bar').text('Patching');
+
+              }
+
+            }
+
+          },10);
+
+        });
+
+        // Stop Interval
+        function stopInterval() {
+          clearInterval(getProgress);
+        }
+
+      });
+
+    </script>
+
+  </body>
+</html>
